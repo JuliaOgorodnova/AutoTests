@@ -8,7 +8,7 @@ import com.codeborne.selenide.Condition;
 import qa.tests.model.ContactInfo;
 
 import static qa.tests.pages.CellListPage.*;
-import static qa.tests.utils.PropertyUtils.GENERATE_CONTACT;
+import static qa.tests.utils.PropertyUtils.PROPERTIES;
 
 class AutoTest extends TestConfig {
 
@@ -45,8 +45,9 @@ class AutoTest extends TestConfig {
 	@Test
 	@DisplayName("Добавление 50 пользователей и проверка что их 300")
 	void testGenerateContactsUser() {
+		USERS_COUNT.should(Condition.text(PROPERTIES.getString("usersCount.before")));
 		GENERATE_CONTACTS.click();
-		NUMBER_USERS.should(Condition.text(GENERATE_CONTACT.getString("generateContact.threeHundredContact")));
+		USERS_COUNT.should(Condition.text(PROPERTIES.getString("usersCount.after")));
 	}
 }
 

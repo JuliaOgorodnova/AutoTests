@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.Accessors;
 
-import static qa.tests.utils.PropertyUtils.CONTACT_INFO;
+import static qa.tests.utils.PropertyUtils.PROPERTIES;
 
 @Value
 @Builder
@@ -17,10 +17,10 @@ public class ContactInfo {
 
 	public static ContactInfo buildDefaultContactInfo() {
 		return ContactInfo.builder()
-				.firstName(CONTACT_INFO.getString("contactInfo.firstName"))
-				.lastName(CONTACT_INFO.getString("contactInfo.lastName"))
-				.birthday(CONTACT_INFO.getString("contactInfo.birthday"))
-				.address(CONTACT_INFO.getString("contactInfo.address"))
+				.firstName(PROPERTIES.getString("contactInfo.firstName"))
+				.lastName(PROPERTIES.getString("contactInfo.lastName"))
+				.birthday(PROPERTIES.getString("contactInfo.birthday"))
+				.address(PROPERTIES.getString("contactInfo.address"))
 				.build();
 	}
 }
